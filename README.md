@@ -1,4 +1,4 @@
 # Test-Maximum
-Modified to UC 3 Refactor 2 - Get maximum int,float,string from 3 inputs using one Generic method
+Modified to UC 4 - Extend the max method to take more then three parameters
 
-Caller class is Generic(TestMaximumMain)
+Replaced CompareTo by sorted().reduce()
