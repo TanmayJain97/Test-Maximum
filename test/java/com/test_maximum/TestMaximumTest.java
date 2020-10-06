@@ -15,7 +15,7 @@ public class TestMaximumTest {
 	public void init() {
 		testObj=new TestMaximumMain();
 	}
-	
+
 	//Integer Test
 
 	// TC 1.1
@@ -40,7 +40,7 @@ public class TestMaximumTest {
 	}
 
 	//Float Test
-	
+
 	// TC 1.1
 	@Test
 	public void maxFloatAtFirstPos_ShouldReturnSame() {
@@ -60,5 +60,28 @@ public class TestMaximumTest {
 	public void maxFloatAtThirdPos_ShouldReturnSame() {
 		Float fl_arr[] = new Float[] { 1f, 2f, 3f };
 		assertEquals(3f, testObj.maxFloat(Arrays.stream(fl_arr)),0);
+	}
+
+	//String Test
+
+	// TC 1.1
+	@Test
+	public void maxStringAtFirstPos_ShouldReturnSame() {
+		String str_arr[] = new String[] { "Pineapple","Apple","Kheera" };
+		assertEquals("Pineapple", testObj.maxString(Arrays.stream(str_arr)));
+	}
+
+	// TC 1.2
+	@Test
+	public void maxStringAtSecondPos_ShouldReturnSame() {
+		String str_arr[] = new String[] { "Apple","Pineapple","Kheera" };
+		assertEquals("Pineapple", testObj.maxString(Arrays.stream(str_arr)));
+	}
+
+	// TC 1.3
+	@Test
+	public void maxStringAtThirdPos_ShouldReturnSame() {
+		String str_arr[] = new String[] { "Apple","Kheera","Pineapple" };
+		assertEquals("Pineapple", testObj.maxString(Arrays.stream(str_arr)));
 	}
 }
