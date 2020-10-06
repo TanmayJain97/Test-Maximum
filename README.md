@@ -1,2 +1,2 @@
 # Test-Maximum
-Modified to UC 2 - Get maximum int,float from 3 inputs.
+Modified to UC 3 - Get maximum int,float,string from 3 inputs.
