@@ -46,21 +46,21 @@ public class TestMaximumTest {
 	@Test
 	public void maxFloatAtFirstPos_ShouldReturnSame() {
 		Float fl_arr[] = new Float[] { 3f, 2f, 1f };
-		assertEquals(3f, testObj.findMaximum(Arrays.stream(fl_arr)),0);
+		assertEquals(3f, (float)testObj.findMaximum(Arrays.stream(fl_arr)),0);
 	}
 
 	// TC 1.2
 	@Test
 	public void maxFloatAtSecondPos_ShouldReturnSame() {
 		Float fl_arr[] = new Float[] { 1f, 3f, 2f };
-		assertEquals(3f, testObj.findMaximum(Arrays.stream(fl_arr)),0);
+		assertEquals(3f, (float)testObj.findMaximum(Arrays.stream(fl_arr)),0);
 	}
 
 	// TC 1.3
 	@Test
 	public void maxFloatAtThirdPos_ShouldReturnSame() {
 		Float fl_arr[] = new Float[] { 1f, 2f, 3f };
-		assertEquals(3f, testObj.findMaximum(Arrays.stream(fl_arr)),0);
+		assertEquals(3f, (float)testObj.findMaximum(Arrays.stream(fl_arr)),0);
 	}
 
 	//String Test
