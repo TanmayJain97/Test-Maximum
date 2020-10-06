@@ -9,7 +9,13 @@ public class TestMaximumMain <T extends Comparable<T>> {
 	//Generic Method
 	public <T extends Comparable<T>> T findMaximum(Stream<T> gen_str) {
 
-		return gen_str.sorted().reduce((less,more) -> more).get();
+		T max = gen_str.sorted().reduce((less,more) -> more).get();
+		printMaximum(max);
+		return max;
+	}
+
+	public <T extends Comparable<T>> void printMaximum(T max) {
+		System.out.println("Maximum value = "+max);
 	}
 
 	public void getInput() {
@@ -29,7 +35,7 @@ public class TestMaximumMain <T extends Comparable<T>> {
 	public void push(T... input) {
 
     	Stream<T> gen_stream=Arrays.stream(input);
-    	System.out.println("Maximum = "+findMaximum(gen_stream));
+    	findMaximum(gen_stream);
 	}
 
 public static void main( String[] args ) {
