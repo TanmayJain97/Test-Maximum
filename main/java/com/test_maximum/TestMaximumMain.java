@@ -2,23 +2,19 @@ package com.test_maximum;
 
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class TestMaximumMain {
 	
-	public int maxNumber(Stream<Integer> stream) {
-		return stream.max(Integer::compareTo).get();
-	}
-	
-	public Float maxFloat(Stream<Float> stream) {
-		return stream.max(Float::compareTo).get();
-	}
-	
-	public String maxString(Stream<String> stream) {
-		return stream.max(String::compareTo).get();
+	//Generic Method
+	public <T extends Comparable<T>> T findMaximum(Stream<T> gen_str) {
+
+		return gen_str.collect(Collectors.maxBy(T::compareTo)).get();
 	}
 
-	public static void main( String[] args ) {
+
+public static void main( String[] args ) {
 		
 	TestMaximumMain buildObj = new TestMaximumMain();
     	Scanner sc= new Scanner(System.in);
@@ -46,9 +42,9 @@ public class TestMaximumMain {
     	Stream<Float> fl_stream=Arrays.stream(fl_arr);
     	Stream<String> str_stream=Arrays.stream(str_arr);
     	
-    	System.out.println("Maximum integer = "+buildObj.maxNumber(num_stream));
-    	System.out.println("Maximum float = "+buildObj.maxFloat(fl_stream));
-    	System.out.println("Maximum string = "+buildObj.maxString(str_stream));
+    	System.out.println("Maximum integer = "+buildObj.findMaximum(num_stream));
+    	System.out.println("Maximum float = "+buildObj.findMaximum(fl_stream));
+    	System.out.println("Maximum string = "+buildObj.findMaximum(str_stream));
     	sc.close();
     }
 }
