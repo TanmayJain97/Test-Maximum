@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class TestMaximumMain {
+public class TestMaximumMain <T extends Comparable<T>> {
 	
 	//Generic Method
 	public <T extends Comparable<T>> T findMaximum(Stream<T> gen_str) {
@@ -13,38 +13,32 @@ public class TestMaximumMain {
 		return gen_str.collect(Collectors.maxBy(T::compareTo)).get();
 	}
 
+	public void getInput() {
+		
+		Scanner sc= new Scanner(System.in);
+		System.out.println("Please enter 3 objects: ");
+    	System.out.print("Input 1: ");
+    	T input1 = (T) sc.next();
+    	System.out.print("Input 2: ");
+    	T input2 = (T) sc.next();
+    	System.out.print("Input 3: ");
+    	T input3 = (T) sc.next();
+    	
+    	@SuppressWarnings("unchecked")
+		T[] gen_arr = (T[])new Object[3];
+    	gen_arr[0]=input1;
+    	gen_arr[1]=input2;
+    	gen_arr[2]=input3;
+    	
+    	Stream<T> gen_stream=Arrays.stream(gen_arr);
+    	
+    	System.out.println("Maximum = "+findMaximum(gen_stream));
+    	sc.close();
+	}
 
 public static void main( String[] args ) {
 		
-	TestMaximumMain buildObj = new TestMaximumMain();
-    	Scanner sc= new Scanner(System.in);
-    	System.out.println("Input 3 integers: ");
-    	System.out.print("Int 1: ");
-    	int num1 = sc.nextInt();
-    	System.out.print("Int 2: ");
-    	int num2 = sc.nextInt();
-    	System.out.print("Int 3: ");
-    	int num3 = sc.nextInt();
-    	
-    	System.out.println("Input 3 strings: ");
-    	System.out.print("String 1: ");
-    	String str1 = sc.next();
-    	System.out.print("String 2: ");
-    	String str2 = sc.next();
-    	System.out.print("String 3: ");
-    	String str3 = sc.next();
-    	
-    	Integer num_arr[] = new Integer[]{num1,num2,num3};
-    	Float fl_arr[] = new Float[] {(float) num1,(float) num2,(float) num3};
-    	String str_arr[] = new String[]{str1,str2,str3};
-    	
-    	Stream<Integer> num_stream=Arrays.stream(num_arr);
-    	Stream<Float> fl_stream=Arrays.stream(fl_arr);
-    	Stream<String> str_stream=Arrays.stream(str_arr);
-    	
-    	System.out.println("Maximum integer = "+buildObj.findMaximum(num_stream));
-    	System.out.println("Maximum float = "+buildObj.findMaximum(fl_stream));
-    	System.out.println("Maximum string = "+buildObj.findMaximum(str_stream));
-    	sc.close();
+		TestMaximumMain buildObj = new TestMaximumMain();
+    	buildObj.getInput();
     }
 }
