@@ -1,4 +1,4 @@
 # Test-Maximum
-Modified to UC 4 - Extend the max method to take more then three parameters
+Modified to UC 4 - Extend the max method to print max to std out(console) using Generic Method
 
-Replaced CompareTo by sorted().reduce()
+findMaximum() internally calls printMaximum().
